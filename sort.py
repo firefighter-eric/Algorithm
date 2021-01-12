@@ -1,4 +1,13 @@
 def merge(arr1: list, arr2: list) -> list:
+    """merge sorted array
+
+    Args:
+        arr1 (list): array 1
+        arr2 (list): array 2
+
+    Returns:
+        list: merged array
+    """
     arr = []
     i1 = i2 = 0
     while i1 < len(arr1) and i2 < len(arr2):
