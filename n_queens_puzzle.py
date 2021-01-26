@@ -12,16 +12,15 @@ def solveNQueens(n: int):
             ans[-1].append(''.join(line))
 
     def backtrack(pos_start, count):
-        # print(count)
-        if count == n - 1:
+        if count == n:
             record()
             return
 
         for pos in range(pos_start, n * n):
-            y, x = pos // n, (pos + 1) % n - 1
+            y, x = pos // n, pos % n
             d1, d2 = x + y, x - y + n - 1
             if row[y] or col[x] or diag1[d1] or diag2[d2]:
-                return
+                continue
             
             change_flag(y, x, d1, d2, True)
             backtrack(pos + 1, count + 1)
@@ -39,4 +38,8 @@ def solveNQueens(n: int):
     return ans
 
 if __name__ == '__main__':
-    print(solveNQueens(4))
+    queens4 = solveNQueens(4)
+    print('queens4:', queens4)
+
+    queens8 = solveNQueens(8)
+    print('queens8:', len(queens8))
